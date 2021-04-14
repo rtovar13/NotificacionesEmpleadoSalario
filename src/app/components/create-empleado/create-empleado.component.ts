@@ -25,7 +25,9 @@ titulo = 'Agregar Empleado';
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
       documento: ['', Validators.required],
-      salario: ['', Validators.required]
+      salario: ['', Validators.required],
+      fecha: ['', Validators.required],
+      hora: ['', Validators.required]
     });
     this.id = this.aRoute.snapshot.paramMap.get('id');
   }
@@ -55,6 +57,8 @@ agregarEmpleado(): void{
     apellido: this.createEmpleado.value.apellido,
     documento: this.createEmpleado.value.documento,
     salario: this.createEmpleado.value.salario,
+    fecha: this.createEmpleado.value.fecha,
+    hora: this.createEmpleado.value.hora,
     fechaCreacion: new Date(),
     fechaActualizacion: new Date()
     };
@@ -80,6 +84,8 @@ editarEmpleado(id: string){
     apellido: this.createEmpleado.value.apellido,
     documento: this.createEmpleado.value.documento,
     salario: this.createEmpleado.value.salario,
+    fecha: this.createEmpleado.value.fecha,
+    hora: this.createEmpleado.value.hora,
     fechaActualizacion: new Date()
     };
 
@@ -107,6 +113,8 @@ this.empleadoService.getEmpleado(this.id).subscribe(data => {
     apellido: data.payload.data().apellido,
     documento: data.payload.data().documento,
     salario: data.payload.data().salario,
+    fecha: data.payload.data().fecha,
+    hora: data.payload.data().hora,
   });
 });
   }
